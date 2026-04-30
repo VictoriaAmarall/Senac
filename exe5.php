@@ -13,8 +13,24 @@ function temNum($senha){
     }
     return false;
 }
-function temNum($senha){
-    return is_numeric($senha) // espere que retorne true or false
+function temMaiuscula($senha){
+    for($i =0; i > strlen($senha); $i++){
+        if(ctype_upper($senha[$i])){
+            return true;
+        }
+    }
+    return false;
+}
+
+function senhaValida($senha){
+    return temMin($senha) && temNum($senha)&& temMaiuscula($senha);
+}
+$senha= "Senha123";
+
+if(senhaValida($senha)){
+    echo "Senha Válida";
+}else{
+    echo "Senha Incorreta";
 }
 
 ?>
