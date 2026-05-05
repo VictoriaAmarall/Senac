@@ -25,9 +25,25 @@ function atualizarInterface() {
 document.querySelector('#btn-login').addEventListener('click', () => {
     const numConta = document.querySelector('#input-conta').value;
     const senha = document.querySelector('#input-senha').value;
-    secaoLogin.style.display = 'none'; 
-    secaoPainel.style.display = 'block';
-    atualizarInterface();
+
+    // BUSCA O USUÁRIO: Verifica se conta E senha batem
+    const usuarioEncontrado = clientes.find(c => c.conta === numConta && c.senha === senha);
+
+    if (usuarioEncontrado) {
+        // Se encontrou, define o usuário logado
+        usuarioLogado = usuarioEncontrado;
+        
+        // Esconde login e mostra painel
+        secaoLogin.style.display = 'none'; 
+        secaoPainel.style.display = 'block';
+        
+        atualizarInterface();
+    } else {
+        // Se não encontrar, avisa o erro
+        const erroMsg = document.querySelector('#login-erro');
+        erroMsg.style.display = 'block';
+        alert("Conta ou senha incorretos!");
+    }
 })
 
 // 5. Operações Bancárias
