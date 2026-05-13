@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Prático de Armazenamento</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h2 { color: #007bff; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 30px; }
+        .painel { border: 1px solid #ccc; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input[type="text"], input[type="number"], textarea { width: 95%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+        button:hover { background-color: #1e7e34; }
+        .info-storage { font-size: 0.9em; color: #555; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Desafio de Armazenamento (Storage)</h1>
+
+        <h2>1. Painel de Preferências (localStorage)</h2>
+        <div class="painel">
+            <p><strong>Meta:</strong> Salvar o nome do usuário e a sua pontuação mais alta de forma **permanente**.</p>
+            
+            <label for="nomeUser">Seu Nome:</label>
+            <input type="text" id="nomeUser" placeholder="Seu nome completo">
+            
+            <label for="pontuacao">Pontuação Mais Alta:</label>
+            <input type="number" id="pontuacao" value="0">
+            
+            <button id="btnSalvarPref">Salvar Preferências</button>
+            <p class="info-storage">Após salvar, recarregue a página (F5). Os dados DEVEM persistir.</p>
+
+            <h3>Dados Salvos Atualmente:</h3>
+            <p id="prefStatus">Nenhum dado carregado.</p>
+        </div>
+
+        <h2>2. Rascunho de Feedback (sessionStorage)</h2>
+        <div class="painel">
+            <p><strong>Meta:</strong> Salvar o rascunho do texto automaticamente. O rascunho DEVE ser perdido se o usuário fechar e reabrir a janela, mas deve persistir no F5.</p>
+
+            <label for="rascunho">Digite seu feedback:</label>
+            <textarea id="rascunho" rows="5" placeholder="Comece a digitar..."></textarea>
+            <p id="rascunhoStatus" class="info-storage">Rascunho carregado.</p>
+            
+            <button id="btnLimparRascunho">Limpar Rascunho</button>
+        </div>
+        
+    </div>
+
+    <script src="desafio_storage.js"></script>
+</body>
+</html>
